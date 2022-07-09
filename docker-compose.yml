@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+  auth:
+    image: auth
+    restart: unless-stopped
+    ports:
+      - "100:80"
+    volumes:
+      - .:/app
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example
+    ports:
+      - "27017:27017"
+    volumes:
+      - .:/data/db

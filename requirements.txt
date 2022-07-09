@@ -1,0 +1,5 @@
+fastapi
+pymongo
+argon2-cffi
+rich
+uvicorn[standard]
